@@ -82,8 +82,8 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   def filter0(p: Tweet => Boolean, accu: TweetSet): TweetSet = {
     val accu0 = if (accu == null) new Empty else accu
     if (this.isEmpty) new Empty 
-    else if (p(this.head)) this.tail.filter0(p, accu.incl(this.head))
-    else this.tail.filter0(p, accu)
+    else if (p(this.head)) this.tail.filter0(p, accu0.incl(this.head))
+    else this.tail.filter0(p, accu0)
   }
 
   // The following methods are provided for you, and do not have to be changed
